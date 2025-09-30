@@ -1,9 +1,12 @@
+const SPREADSHEET_ID = "1CkdsIKK0GS6MR6B0lKpW39_hyquuXCWIZJDglxt1Zac";
+const OPEN_TICKET_ROOT_FOLDER_ID = "1HwXjWy30JMeeRbNi-BJOSUZn1ouD7Ty2";
+const CLOSED_TICKET_ROOT_FOLDER_ID = "1HlgXSuFu0eyi6XY_RfL83Vj3G0TICPew";
+
 function onFormSubmit(e) {
   var formResponses = e.response;
   var itemResponses = formResponses.getItemResponses();
 
   // "Trouble Shooting Casebook" 스프레드시트의 실제 ID를 사용
-  var SPREADSHEET_ID = "1CkdsIKK0GS6MR6B0lKpW39_hyquuXCWIZJDglxt1Zac";
   var spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   var openSheet = spreadsheet.getSheetByName("미해결 티켓 시트");
   var closedSheet = spreadsheet.getSheetByName("해결 티켓 시트");
@@ -72,8 +75,6 @@ function onFormSubmit(e) {
   console.log("existingSheetResult: " + existingSheetResult);
 
   // 결과 저장 폴더 정보
-  var OPEN_TICKET_ROOT_FOLDER_ID = "1HwXjWy30JMeeRbNi-BJOSUZn1ouD7Ty2";
-  var CLOSED_TICKET_ROOT_FOLDER_ID = "1HlgXSuFu0eyi6XY_RfL83Vj3G0TICPew";
   var openTicketRootFolder = DriveApp.getFolderById(OPEN_TICKET_ROOT_FOLDER_ID);
   var closedTicketRootFolder = DriveApp.getFolderById(
     CLOSED_TICKET_ROOT_FOLDER_ID
